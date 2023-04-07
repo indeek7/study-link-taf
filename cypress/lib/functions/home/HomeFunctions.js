@@ -86,19 +86,41 @@ export const verifyFlyoutOpenSatate = (State, FlyoutMenu) => {
 };
 
 /**
- * Verify sub items in "" section
+ * Verify sub items in "Convert More Quality Applications", "Maximise it's Recruitment Effort" and  "Be Compliant and Secure" sections
  * 
- * @param {*} data 
+ * @param {*} data Sub items of each mentioned section
+ * eg: ["Complete data on submission","Integration","Automation","Speed"];
+ * @param {*} section Any section name out of "Convert More Quality Applications", "Maximise it's Recruitment Effort" and  "Be Compliant and Secure" sections
+ * eg: Convert More Quality Applications
  */
-export const verifyItems = (data) => {
+export const verifyItems = (data, section) => {
 
-  let itemArray = [];
+  const itemArray = [];
+  let myElement = '';
 
-  cy.xpath('//div[@class="fl-module fl-module-advanced-accordion fl-node-i68uxpn4tjk3"]//div[@class="uabb-adv-accordion-item"]//h5').each(($el) => {
-  let item = $el.text();
+switch(section) {
+    case 'Convert More Quality Applications':
+        myElement = cy.xpath('//div[@class="fl-module fl-module-advanced-accordion fl-node-i68uxpn4tjk3"]//div[@class="uabb-adv-accordion-item"]//h5');
+        break;
+    case "Maximise it's Recruitment Effort":
+        myElement = cy.xpath('//div[@class="fl-module fl-module-advanced-accordion fl-node-l1huedyjqnkc"]//div[@class="uabb-adv-accordion-item"]//h5');
+        break;
+    case 'Be Compliant and Secure':
+        myElement = cy.xpath('//div[@class="fl-module fl-module-advanced-accordion fl-node-5c9hypw7ki12"]//div[@class="uabb-adv-accordion-item"]//h5');
+        break;
+    default:
+        cy.log("Section name not found");
+}
+
+
+  myElement.each(($el) => {
+  const item = $el.text();
+
   itemArray.push(item);
+
   }).then(() => {
     itemArray.forEach((element, index) => {
+        cy.log(element);
         expect(element).to.equal(data[index]);
       });
   });
