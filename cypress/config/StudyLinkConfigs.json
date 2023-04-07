@@ -1,0 +1,12 @@
+{
+    "baseUrl": "https://connect.studylink.com",
+    "partnerPortalPageUrl": "/for-agents",
+    "capturePageUrl": "/capture",
+    "admitPageUrl": "/admit",
+    "aboutUsPageUrl": "/about-us",
+    "hubPageUrl": "/the-hub-copy",
+    "caseStudyPageUrl": "/case-studies",
+    "clientsPageUrl": "/clients",
+    "partnersPageUrl": "/partners",
+    "solutionsPageUrl": "/solutions"
+}
