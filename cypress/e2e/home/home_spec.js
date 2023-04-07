@@ -7,7 +7,7 @@ beforeEach(() => {
     cy.visit('https://connect.studylink.com/')
   });
 
-it.skip('Verify View Solutions button functionality', () => {
+it('Verify View Solutions button functionality', () => {
  
     Home.clickViewOurSolutions();
     Common.getURL().should('include', '/solutions');
@@ -15,7 +15,7 @@ it.skip('Verify View Solutions button functionality', () => {
    });
 
 
-   it.skip('Verify Education Providers Flyout functionality', () => {
+   it('Verify Education Providers Flyout functionality', () => {
  
     // Open Education Providers Flyout
     Home.openFlyout('Education Provider');
@@ -27,7 +27,7 @@ it.skip('Verify View Solutions button functionality', () => {
 
    });
 
-   it.skip('Verify Recruitment Partners Flyout functionality', () => {
+   it('Verify Recruitment Partners Flyout functionality', () => {
  
     // Open Recruitment Partners Flyout
     Home.openFlyout('Recruitment Partners');
@@ -39,7 +39,7 @@ it.skip('Verify View Solutions button functionality', () => {
 
    });
 
-   it.skip('Verify sub sections in "Convert More Quality Applications" section', () => {
+   it('Verify sub sections in "Convert More Quality Applications" section', () => {
  
     const testData = ["Complete data on submission","Integration","Automation","Speed"];
 
@@ -47,7 +47,7 @@ it.skip('Verify View Solutions button functionality', () => {
 
    });
 
-   it.skip('Verify sub sections in Maximise its Recruitment Effort section', () => {
+   it('Verify sub sections in Maximise its Recruitment Effort section', () => {
  
     const testData = ["Agent and Recruitment Partner management","Diversification","Access","Convenience","Tracking"];
 
