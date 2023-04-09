@@ -99,8 +99,7 @@ describe('Top Panel Tests', () => {
         MoreInfo.fillTitle("Admission Process");
         MoreInfo.fillComment("I need to know full automated admission process");
         MoreInfo.submit();
-        Common.clickOnMoreInfo();
-        MoreInfo.verifyAndConfirmFailSubmision();
+        MoreInfo.verifyErrorMessage("First");
       });
 
       it('Verify error message for blank Last Name', () => {
@@ -114,8 +113,7 @@ describe('Top Panel Tests', () => {
         MoreInfo.fillTitle("Admission Process");
         MoreInfo.fillComment("I need to know full automated admission process");
         MoreInfo.submit();
-        Common.clickOnMoreInfo();
-        MoreInfo.verifyAndConfirmFailSubmision();
+        MoreInfo.verifyErrorMessage("Last");
       });
 
       it('Verify error message for blank comment', () => {
@@ -129,8 +127,7 @@ describe('Top Panel Tests', () => {
         MoreInfo.fillTitle("Admission Process");
         MoreInfo.fillComment("                                ");
         MoreInfo.submit();
-        Common.clickOnMoreInfo();
-        MoreInfo.verifyAndConfirmFailSubmision();
+        MoreInfo.verifyErrorMessage("Comment");
       });
 
       it('Verify more information form filling function with spaces as Organization', () => {
@@ -144,8 +141,21 @@ describe('Top Panel Tests', () => {
         MoreInfo.fillTitle("Admission Process");
         MoreInfo.fillComment("I need to know full automated admission process");
         MoreInfo.submit();
+        MoreInfo.verifyErrorMessage("Organization");
+      });
+
+      it('Verify more information form filling function with spaces as Email', () => {
+   
         Common.clickOnMoreInfo();
-        MoreInfo.verifyAndConfirmFailSubmision();
+        MoreInfo.fillFirstName("Test");
+        MoreInfo.fillLastName("Developer");
+        MoreInfo.fillOrganization("Test Developer");
+        MoreInfo.fillEmail("         ");
+        MoreInfo.fillCountry("Australia");
+        MoreInfo.fillTitle("Admission Process");
+        MoreInfo.fillComment("I need to know full automated admission process");
+        MoreInfo.submit();
+        MoreInfo.verifyErrorMessage("Email");
       });
 
       it('Verify error message for incorrect email format', () => {
