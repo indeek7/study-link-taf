@@ -170,3 +170,56 @@ export const fillFirstName = (name) => {
             .should('have.text', "Please enter a valid email address.");
   };
 
+   /**
+   * Verify Field labels in the "More Information" form
+   * 
+   * @param {*} field Fields in the "More Information" form
+   * eg: "Name"
+   */
+   export const verifyLabels = (field) => {
+    switch (field) {
+        case 'Name':
+            cy.xpath('//div[@class="wpforms-field wpforms-field-name"]/label[@class="wpforms-field-label"]')
+            .eq(0)
+            .should('have.text', "Name *");
+            break;
+        case 'First':
+            cy.xpath('//div[@class="wpforms-field-row-block wpforms-first wpforms-one-half"]/label[@for="wpforms-606-field_0"]')
+            .eq(0)
+            .should('have.text', "First");
+            break;
+        case 'Last':
+            cy.xpath('//div[@class="wpforms-field-row-block wpforms-one-half"]/label[@for="wpforms-606-field_0-last"]')
+            .eq(0)
+            .should('have.text', "Last");
+            break;
+        case 'Comment':
+            cy.xpath('//div[@id="wpforms-606-field_2-container"]/label[@for="wpforms-606-field_2"]')
+            .eq(0)
+            .should('have.text', "Comment or Message *");
+            break;
+        case 'Email':
+            cy.xpath('//div[@id="wpforms-606-field_1-container"]/label[@for="wpforms-606-field_1"]')
+            .eq(0)
+            .should('have.text', "Email *");
+            break;
+        case 'Organization':
+            cy.xpath('//div[@id="wpforms-606-field_3-container"]/label[@for="wpforms-606-field_3"]')
+            .eq(0)
+            .should('have.text', "Institution/Organisation *");
+            break;
+        case 'Title':
+            cy.xpath('//div[@id="wpforms-606-field_4-container"]/label[@for="wpforms-606-field_4"]')
+            .eq(0)
+            .should('have.text', "Title");
+            break;
+        case 'Country':
+            cy.xpath('//div[@id="wpforms-606-field_5-container"]/label[@for="wpforms-606-field_5"]')
+            .eq(0)
+            .should('have.text', "Country");
+            break;
+        default:
+            cy.log("Field not found");
+    }
+  };
+
