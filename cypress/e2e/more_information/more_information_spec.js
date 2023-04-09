@@ -6,6 +6,18 @@ describe('Top Panel Tests', () => {
     beforeEach(() => {
       cy.visit('https://connect.studylink.com/')
     });
+
+      it('Verify labels in More Information form', () => {
+        Common.clickOnMoreInfo();
+        MoreInfo.verifyLabels("Name");
+        MoreInfo.verifyLabels("First");
+        MoreInfo.verifyLabels("Last");
+        MoreInfo.verifyLabels("Organization");
+        MoreInfo.verifyLabels("Email");
+        MoreInfo.verifyLabels("Title");
+        MoreInfo.verifyLabels("Country");
+        MoreInfo.verifyLabels("Comment");
+      });
   
       it('Verify more information form filling with valid data', () => {
    
